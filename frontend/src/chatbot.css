@@ -1,0 +1,169 @@
+/* --- CHATBOT-SPECIFIC STYLES (Add to App.css) --- */
+
+.chatbot-widget {
+    /* Set a reasonable height for the chat widget */
+    height: 600px; 
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    /* Use the same styling as other widget headers */
+    padding: 18px 32px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: var(--card-bg-transparent);
+}
+
+.chat-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--accent-primary);
+    flex-shrink: 0;
+}
+
+.widget-title-small {
+    /* Smaller title for the chat window */
+    font-size: 1.4rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(102, 255, 176, 0.1);
+}
+
+.chatbot-widget .widget-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0; /* Remove default widget padding for full-height message window */
+}
+
+.message-window {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 20px 32px;
+    background-color: rgba(0, 0, 0, 0.2); /* Slightly darker background for contrast */
+}
+
+/* Message Bubbles */
+.message-bubble {
+    max-width: 80%;
+    padding: 12px 18px;
+    border-radius: 18px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    word-wrap: break-word;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.user-bubble {
+    align-self: flex-end;
+    background-color: var(--accent-secondary); /* Accent secondary for user */
+    color: var(--bg-primary);
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+    font-weight: 500;
+}
+
+.ai-bubble {
+    align-self: flex-start;
+    background-color: rgba(10, 12, 28, 0.9); /* Opaque version of card background */
+    color: var(--text-primary);
+    margin-right: auto;
+    border: 1px solid var(--border-color);
+    border-bottom-left-radius: 4px;
+}
+
+/* Input Form */
+.chatbot-widget .input-form {
+    display: flex;
+    padding: 20px 32px;
+    border-top: 1px solid var(--border-color);
+    flex-shrink: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.chatbot-widget .input-field {
+    /* Overrides the complex form-input group styling for a clean chat input */
+    background: rgba(255, 255, 255, 0.08); 
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 12px 15px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    flex-grow: 1;
+    margin-right: 10px;
+}
+.chatbot-widget .input-field:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 10px var(--accent-primary);
+    outline: none;
+}
+
+.send-button {
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    color: var(--bg-primary);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.send-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+.send-button:hover:not(:disabled) {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(102, 255, 176, 0.4);
+}
+
+/* ------------------------------------------- */
+/* COOL LOADING ANIMATION (Dot Spinner) */
+/* ------------------------------------------- */
+
+.loading-bubble {
+    background-color: rgba(10, 12, 28, 0.9);
+    border: 1px solid var(--border-color);
+    width: 60px;
+    padding: 10px;
+}
+
+.dot-spinner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 40px;
+    height: 10px;
+}
+
+.dot-bounce {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-primary); /* Green accent */
+    border-radius: 50%;
+    animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.dot-bounce:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.dot-bounce:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+/* Keyframes already defined in your App.css, but repeated here for clarity */
+/*
+@keyframes bounce {
+    0%, 80%, 100% { transform: scale(0); } 
+    40% { transform: scale(1.0); }
+}
+*/
