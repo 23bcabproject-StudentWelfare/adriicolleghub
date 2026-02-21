@@ -1,0 +1,15 @@
+# Dependencies (Heavy files - DO NOT UPLOAD)
+node_modules
+client/node_modules
+server/node_modules
+
+# Secrets (Security Risk - DO NOT UPLOAD)
+.env
+.env.local
+server/.env
+client/.env
+
+# Build Output
+dist
+build
+client/dist
